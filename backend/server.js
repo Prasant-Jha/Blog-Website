@@ -6,6 +6,7 @@ import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import blogRoutes from "./routes/blogRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
+import contactRoutes from "./routes/contactRoutes.js";
 import statsRoutes from "./routes/statsRoutes.js";
 import path from "path";
 
@@ -25,6 +26,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/blogs", blogRoutes);
 app.use("/api/uploads", uploadRoutes);
 app.use("/api/stats", statsRoutes);
+app.use("/api/contact", contactRoutes);
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
