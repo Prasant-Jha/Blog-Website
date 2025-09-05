@@ -1,5 +1,5 @@
 import express from "express";
-import { register, login, getProfile, updateProfile, changePassword, forgotPassword, resetPassword, deleteUser, getAllUsers } from "../controllers/authController.js";
+import { register, login, getProfile, updateProfile, changePassword, forgotPassword, resetPassword, deleteUser, getAllUsers, updateUserRole } from "../controllers/authController.js";
 import { verifyAdmin, verifyToken } from "../middlewares/auth.js";
 import upload from "../middlewares/upload.js";
 
@@ -16,5 +16,6 @@ router.put("/reset-password/:token", resetPassword);
 
 router.get("/users", verifyToken, verifyAdmin, getAllUsers);
 router.delete("/users/:id", verifyToken, verifyAdmin, deleteUser);
+router.put("/users/:id/role", verifyToken, verifyAdmin, updateUserRole);
 
 export default router;
